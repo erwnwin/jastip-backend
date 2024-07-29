@@ -1,0 +1,119 @@
+$(document).ready(function() {
+
+    $("#gambar").change(function(){
+        var input = this;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#imagePreview').attr('src', e.target.result);
+                $('#imagePreviewContainer').show();
+                $('#removeImage').show(); // Show remove option
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
+
+    // Function to remove image preview
+    $('#removeImage').click(function() {
+        $('#gambar').val(''); // Clear input file
+        $('#imagePreview').attr('src', '');
+        $('#imagePreviewContainer').hide();
+        $('#removeImage').hide(); // Hide remove option again
+    });
+
+
+    $('#formJastip').submit(function(e) {
+        e.preventDefault(); // Prevent form submission
+
+        // Mengambil nilai dari form
+        // var nama_jastip = $('#nama_jastip').val();
+        // var alamat = $('#alamat').val();
+        // var gambar = $('#gambar').val();
+        // var latitude = $('#latitude').val();
+        // var longitude = $('#longitude').val();
+        // var alamat_email = $('#alamat_email').val();
+        // var password = $('#password').val();
+        // var no_telp_wa = $('#no_telp_wa').val();
+        var formData = new FormData(this);
+
+        // Menampilkan loader
+        $('#btnLoader').show();
+
+        // Melakukan AJAX request
+        $.ajax({
+            url: 'store', // URL dari method store di controller Jastip
+            type: 'POST', // Metode HTTP
+            data: formData,
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            cache: false,
+
+            // Data yang akan dikirim
+            // data: {
+            //     nama_jastip: nama_jastip,
+            //     alamat: alamat,
+            //     gambar: gambar,
+            //     latitude: latitude,
+            //     longitude: longitude,
+            //     alamat_email: alamat_email,
+            //     password: password,
+            //     no_telp_wa: no_telp_wa
+            // },
+
+            // Sukses ketika permintaan berhasil
+            success: function(response) {
+                $('#btnLoader').hide();
+
+                // Menampilkan toast success dengan SweetAlert2
+                var Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 4000
+                });
+
+                Toast.fire({
+                    icon: 'success',
+                    title: response.message // Pesan dari respons AJAX
+                });
+
+                // Mengosongkan nilai form setelah berhasil
+                $('#nama_jastip').val('');
+                $('#alamat').val('');
+                $('#gambar').val('');
+                $('#latitude').val('');
+                $('#longitude').val('');
+                $('#alamat_email').val('');
+                $('#password').val('');
+                $('#no_telp_wa').val('');
+
+                  // Redirect ke halaman jasa-titip setelah 3 detik
+                  setTimeout(function() {
+                    window.location.href = response.redirect;
+                }, 2000); // Delay 3 detik sebelum redirect
+            },
+
+            // Gagal ketika permintaan gagal
+            error: function(xhr, status, error) {
+                $('#btnLoader').hide();
+                console.error(xhr.responseText);
+            
+                // Menampilkan toast error dengan SweetAlert2
+                var Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+            
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Gagal menyimpan data: ' + xhr.responseText
+                });
+            }
+        });
+    });
+});
