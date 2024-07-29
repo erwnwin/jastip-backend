@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $title; ?></title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/dist/img/logo-jastip.png">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -13,6 +14,9 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/toastr/toastr.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>public/css/login.css">
+    <!-- <style>
+        
+    </style> -->
 
 </head>
 
@@ -36,6 +40,9 @@
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="svg6">
                 <path fill="#0F62FE" fill-opacity="0.15" d="M43.2,-70.9C53.7,-60.6,58.2,-44.6,62,-30.1C65.9,-15.6,69.2,-2.6,69.8,11.7C70.3,26,68.2,41.7,60.2,53.6C52.1,65.4,38,73.6,22.7,78.9C7.3,84.3,-9.5,86.7,-25.3,83.4C-41.1,80,-56,70.7,-67.2,58.1C-78.3,45.4,-85.7,29.4,-86.9,13.2C-88.1,-3,-83.2,-19.4,-74.1,-31.5C-65,-43.7,-51.7,-51.7,-38.6,-60.9C-25.6,-70.1,-12.8,-80.5,1.8,-83.4C16.4,-86.2,32.8,-81.3,43.2,-70.9Z" transform="translate(100 100)" />
+            </svg>
+            <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="svg7">
+                <polygon points="30,20 80,75 10,85" fill="#0F62FE" fill-opacity="0.15" />
             </svg>
         </div>
 

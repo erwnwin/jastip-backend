@@ -1,4 +1,4 @@
-
+html,
         body {
             height: 100%;
             margin: 0;
@@ -63,7 +63,7 @@
         .svg5 {
             width: 50%;
             height: 50%;
-            top: 80%;
+            top: 76%;
             left: 65%;
             animation: move5 19s linear infinite;
         }
@@ -74,6 +74,16 @@
             top: 1%;
             left: 76%;
             animation: move6 19s linear infinite;
+        }
+
+        .svg7 {
+            width: 40%;
+            height: 40%;
+            top: 85%;
+            left: 40%;
+            position: absolute;
+            transform: rotate(110deg);
+            animation: move7 15s linear infinite;
         }
 
         @keyframes move1 {
@@ -132,7 +142,7 @@
             }
 
             50% {
-                transform: translateX(40px) translateY(60px);
+                transform: translateX(40px) translateY(10px);
             }
         }
 
@@ -145,6 +155,18 @@
 
             50% {
                 transform: translateX(20px) translateY(40px);
+            }
+        }
+
+        @keyframes move7 {
+
+            0%,
+            100% {
+                transform: translateX(0) translateY(0) rotate(180deg);
+            }
+
+            50% {
+                transform: translateX(20px) translateY(0px)rotate(180deg);
             }
         }
 
@@ -228,6 +250,7 @@
             border-radius: 4px;
             border-color: #ced4da;
         }
+
         .form-control:focus {
             border-color: transparent;
             box-shadow: none;
@@ -238,6 +261,7 @@
             color: #007bff;
             transition: color 0.3s;
         }
+
         a:hover {
             text-decoration: none;
             color: #0056b3;

@@ -15,6 +15,19 @@ class TitipanModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function getTitipanTerbaruByPelangganId($pelanggan_id)
+    {
+        $this->db->select('nama_barang, jumlah, status');
+        $this->db->where('pelanggan_id', $pelanggan_id);
+        $this->db->where_in('status', array('request', 'acc-request'));
+        $query = $this->db->get('tbl_request_barang');
+        if ($query->num_rows() > 0) {
+            return $query->result(); // Mengembalikan hasil query dalam bentuk array objek
+        } else {
+            return array(); // Mengembalikan array kosong jika tidak ada data
+        }
+    }
 }
 
 /* End of file TitipanModel.php */

@@ -89,6 +89,8 @@ $route['artikel/delete'] = 'data/artikel/delete';
 
 // Routes Titipan
 $route['titipan'] = 'data/titipan';
+$route['api/titipan/'] = 'data/titipan';
+$route['api/titipan/(:any)'] = 'api/ApiTitipan/getTitipanTerbaruByPelangganId/$1';
 
 // Routes login API
 // $route['api/login'] = 'api/ApiLogin/index';
@@ -103,3 +105,7 @@ $route['auth/verify'] = 'auth/RegistrasiController/verify_otp';
 $route['login'] = 'auth/LoginJastip';
 $route['login/act'] = 'auth/LoginJastip/act_login';
 $route['logout'] = 'auth/LoginJastip/logout';
+
+// Routes users
+$route['profil'] = 'users/Profil';
+$route['info-apps'] = 'users/Info_apps';
