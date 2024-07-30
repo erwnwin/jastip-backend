@@ -23,14 +23,7 @@
                              <h5>Welcome!</h5>
                              <hr>
                              <p>Anda login sebagai <?= $this->session->userdata('hak_akses'); ?>.
-                                 <!-- <?php
-                                        // Debugging untuk memastikan nilai sesi
-                                        $masuk = $this->session->userdata('masuk');
-                                        $hak_akses = $this->session->userdata('hak_akses');
-
-                                        echo "masuk: " . $masuk;
-                                        echo "hak_akses: " . $hak_akses;
-                                        ?> -->
+                                 <?php echo date('Y-m-d H:i:s'); ?>
                              </p>
                              </div>
                              <div class="row">

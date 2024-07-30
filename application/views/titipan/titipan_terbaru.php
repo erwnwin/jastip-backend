@@ -52,11 +52,26 @@
                                                          <img src="<?php echo base_url('uploads/barang/' . $r['gambar']) ?>" alt="" width="50px" height="50px">
                                                      </td>
                                                      <td>
-                                                         <span class="badge bg-danger"><?php echo $r['status']; ?> terbaru</span>
+                                                         <?php if ($r['status'] == 'request') { ?>
+                                                             <span class="badge bg-warning">Request Terbaru</span>
+                                                         <?php } elseif ($r['status'] == 'acc-request') { ?>
+                                                             <span class="badge bg-primary">Menunggu Pembayaran Pelanggan</span>
+                                                         <?php } elseif ($r['status'] == 'payment-awal') { ?>
+                                                             <span class="badge bg-warning">Segera lakukan pengiriman</span>
+                                                         <?php } ?>
+
                                                      </td>
                                                      <td>
-                                                         <a href="<?= base_url('titipan/' . $r['id'] . '/acc') ?>" class="btn btn-sm btn-outline-warning"> Acc Request </a>
-                                                         <button type="button" class="btn btn-sm btn-outline-danger delete-btn" data-id="<?php echo $r['id']; ?>" data-toggle="modal" data-target="#modalDelete"> Batal</button>
+                                                         <?php if ($r['status'] == 'request') { ?>
+                                                             <a href="<?= base_url('titipan/' . $r['id'] . '/acc') ?>" class="btn btn-sm btn-outline-warning"> Acc Request </a>
+                                                             <button type="button" class="btn btn-sm btn-outline-danger delete-btn" data-id="<?php echo $r['id']; ?>" data-toggle="modal" data-target="#modalDelete"> Batal</button>
+                                                         <?php } elseif ($r['status'] == 'acc-request') { ?>
+                                                             <span class="badge bg-warning">Waiting......</span>
+                                                         <?php } elseif ($r['status'] == 'payment-awal') { ?>
+                                                             <a href="<?= base_url('titipan/' . $r['id'] . '/acc') ?>" class="btn btn-sm btn-outline-primary"> Lihat Bukti Bayar </a>
+                                                             <button type="button" class="btn btn-sm btn-outline-success delete-btn" data-id="<?php echo $r['id']; ?>" data-toggle="modal" data-target="#modalDelete"> Lakukan Pengiriman</button>
+                                                         <?php } ?>
+
                                                      </td>
                                                  </tr>
                                              <?php } ?>

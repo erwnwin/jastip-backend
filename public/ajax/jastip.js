@@ -27,15 +27,6 @@ $(document).ready(function() {
     $('#formJastip').submit(function(e) {
         e.preventDefault(); // Prevent form submission
 
-        // Mengambil nilai dari form
-        // var nama_jastip = $('#nama_jastip').val();
-        // var alamat = $('#alamat').val();
-        // var gambar = $('#gambar').val();
-        // var latitude = $('#latitude').val();
-        // var longitude = $('#longitude').val();
-        // var alamat_email = $('#alamat_email').val();
-        // var password = $('#password').val();
-        // var no_telp_wa = $('#no_telp_wa').val();
         var formData = new FormData(this);
 
         // Menampilkan loader
@@ -51,17 +42,6 @@ $(document).ready(function() {
             processData: false,
             cache: false,
 
-            // Data yang akan dikirim
-            // data: {
-            //     nama_jastip: nama_jastip,
-            //     alamat: alamat,
-            //     gambar: gambar,
-            //     latitude: latitude,
-            //     longitude: longitude,
-            //     alamat_email: alamat_email,
-            //     password: password,
-            //     no_telp_wa: no_telp_wa
-            // },
 
             // Sukses ketika permintaan berhasil
             success: function(response) {

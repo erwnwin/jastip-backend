@@ -89,8 +89,15 @@ $route['artikel/delete'] = 'data/artikel/delete';
 
 // Routes Titipan
 $route['titipan'] = 'data/titipan';
+$route['titipan/pembayaran-store'] = 'data/titipan/pembayaran_store';
+$route['titipan/(:num)/acc'] = 'data/titipan/acc/$1';
+// ==================
 $route['api/titipan/'] = 'data/titipan';
-$route['api/titipan/(:any)'] = 'api/ApiTitipan/getTitipanTerbaruByPelangganId/$1';
+$route['api/titipan/delete-old-data'] = 'api/ApiTitipan/delete_old_data';
+$route['api/titipan/(:num)'] = 'api/ApiTitipan/getTitipanTerbaruByPelangganId/$1';
+$route['api/titipan/delete/(:num)'] = 'api/ApiTitipan/deleteTitipan/$1';
+$route['api/titipan/proses-pay'] = 'api/ApiTitipan/proses_pay';
+
 
 // Routes login API
 // $route['api/login'] = 'api/ApiLogin/index';

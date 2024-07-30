@@ -43,6 +43,8 @@
 <script src="<?= base_url() ?>public/ajax/jastip.js"></script>
 <script src="<?= base_url() ?>public/ajax/jastip-delete.js"></script>
 <script src="<?= base_url() ?>public/ajax/pengumuman.js"></script>
+<script src="<?= base_url() ?>public/ajax/pembayaran-proses.js"></script>
+<!-- <script src="<?= base_url() ?>public/ajax/delete-old.js"></script> -->
 
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="<?= base_url() ?>assets/dist/js/demo.js"></script> -->
@@ -144,7 +146,21 @@
         });
     });
 </script>
+<script>
+    console.log("Script delete-old.js loaded");
 
+    setInterval(function() {
+        console.log("Sending request to delete old data");
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/api/titipan/delete-old-data", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                console.log("Response received: ", xhr.responseText);
+            }
+        };
+        xhr.send();
+    }, 300000); // setiap 5 menit dihapus
+</script>
 
 
 

@@ -501,6 +501,8 @@ $config['compress_output'] = FALSE;
 |
 */
 $config['time_reference'] = 'local';
+$config['timezone'] = 'Asia/Makassar';
+
 
 /*
 |--------------------------------------------------------------------------
