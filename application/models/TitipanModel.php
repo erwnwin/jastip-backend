@@ -18,6 +18,35 @@ class TitipanModel extends CI_Model
         return $query->result();
     }
 
+    public function get_items_pengantaran()
+    {
+        // return $this->db->get('tbl_request_barang')->result();
+        $this->db->select('tbl_request_barang.*, tbl_pelanggan.nama_lengkap, tbl_jastip.nama_jastip');
+        $this->db->from('tbl_request_barang');
+        $this->db->join('tbl_pelanggan', 'tbl_pelanggan.id = tbl_request_barang.pelanggan_id');
+        $this->db->join('tbl_jastip', 'tbl_jastip.id = tbl_request_barang.jasa_titip_id');
+        $this->db->where('tbl_request_barang.jasa_titip_id', $this->session->userdata('id'));
+        $this->db->where_in('status', array('pengantaran'));
+        $this->db->order_by('tbl_request_barang.id', 'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
+    public function get_items_riwayat()
+    {
+        // return $this->db->get('tbl_request_barang')->result();
+        $this->db->select('tbl_request_barang.*, tbl_pelanggan.nama_lengkap, tbl_jastip.nama_jastip');
+        $this->db->from('tbl_request_barang');
+        $this->db->join('tbl_pelanggan', 'tbl_pelanggan.id = tbl_request_barang.pelanggan_id');
+        $this->db->join('tbl_jastip', 'tbl_jastip.id = tbl_request_barang.jasa_titip_id');
+        $this->db->where('tbl_request_barang.jasa_titip_id', $this->session->userdata('id'));
+        $this->db->where_in('status', array('done-antar', 'batal-'));
+        $this->db->order_by('tbl_request_barang.id', 'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function getTitipanTerbaruByPelangganId($pelanggan_id)
     {
         $this->db->select('id, nama_barang, jumlah, status');

@@ -5,7 +5,7 @@
                  <div class="container-fluid">
                      <div class="row mb-2">
                          <div class="col-sm-6">
-                             <h1>Daftar Titipan Terbaru</h1>
+                             <h1>Daftar Status Titipan</h1>
                          </div>
                      </div>
                  </div><!-- /.container-fluid -->
@@ -18,7 +18,7 @@
 
                      <div class="card card-default">
                          <div class="card-header">
-                             <h3 class="card-title">Daftar Titipan Terbaru</h3>
+                             <h3 class="card-title">Daftar Status Titipan</h3>
 
                              <!-- <div class="card-tools">
                                  <a href="<?= base_url('jasa-titip/create') ?>" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i> Create</a>
@@ -40,9 +40,9 @@
                                          </tr>
                                      </thead>
                                      <tbody>
-                                         <?php if (!empty($titipan)) { ?>
+                                         <?php if (!empty($titipan_antar)) { ?>
                                              <?php $no = 1;
-                                                foreach ($titipan as $r) { ?>
+                                                foreach ($titipan_antar as $r) { ?>
                                                  <tr>
                                                      <td><?= $no++; ?></td>
                                                      <td><?php echo $r['nama_lengkap']; ?></td>
@@ -68,7 +68,7 @@
                                                          <?php } elseif ($r['status'] == 'acc-request') { ?>
                                                              <span class="badge bg-warning">Waiting......</span>
                                                          <?php } elseif ($r['status'] == 'payment-awal') { ?>
-                                                             <a class="btn btn-sm btn-outline-primary view-bukti-bayar" data-id="<?php echo $r['id']; ?>"> Lihat Bukti Bayar </a>
+                                                             <a href="<?= base_url('titipan/' . $r['id'] . '/acc') ?>" class="btn btn-sm btn-outline-primary"> Lihat Bukti Bayar </a>
                                                              <button type="button" class="btn btn-sm btn-outline-success delete-btn" data-id="<?php echo $r['id']; ?>" data-toggle="modal" data-target="#modalDelete"> Lakukan Pengiriman</button>
                                                          <?php } ?>
                                                      </td>
@@ -86,28 +86,6 @@
                      </div>
                  </div>
              </section>
-             <!-- Modal -->
-             <div class="modal fade" id="modalBuktiBayar" tabindex="-1" role="dialog" aria-labelledby="modalBuktiBayarLabel" aria-hidden="true">
-                 <div class="modal-dialog" role="document">
-                     <div class="modal-content">
-                         <div class="modal-header">
-                             <h5 class="modal-title" id="modalBuktiBayarLabel">Detail Bukti Bayar</h5>
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                 <span aria-hidden="true">&times;</span>
-                             </button>
-                         </div>
-                         <div class="modal-body">
-                             <div id="bukti-bayar-details">
-                                 <!-- Data bukti bayar akan di-load di sini -->
-                             </div>
-                         </div>
-                         <div class="modal-footer">
-                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-
              <div>
                  <br>
              </div>

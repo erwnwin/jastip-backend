@@ -9,6 +9,7 @@ class Titipan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('TitipanModel');
+        $this->load->model('RequestModel');
         if ($this->session->userdata('masuk') != "true" || $this->session->userdata('hak_akses') != "jastip") {
             redirect(base_url("login"));
         }
@@ -89,6 +90,25 @@ class Titipan extends CI_Controller
 
 
             echo json_encode($response);
+        }
+    }
+
+    public function getBuktiBayar($idRequest)
+    {
+        // Ambil data bukti bayar dari model
+        $data = $this->RequestModel->getBuktiBayar($idRequest);
+
+        if ($data) {
+            // Return data dalam format JSON
+            echo json_encode(array(
+                'status' => 'success',
+                'data' => $data
+            ));
+        } else {
+            echo json_encode(array(
+                'status' => 'error',
+                'message' => 'Data tidak ditemukan'
+            ));
         }
     }
 }

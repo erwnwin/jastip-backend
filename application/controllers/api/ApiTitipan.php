@@ -9,6 +9,8 @@ class ApiTitipan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('TitipanModel');
+        $this->load->model('BankingModel');
+        $this->load->model('RequestModel');
     }
 
 
@@ -143,6 +145,43 @@ class ApiTitipan extends CI_Controller
             return FALSE;
         } else {
             return TRUE;
+        }
+    }
+
+
+    public function getBankData($idRequest)
+    {
+        // Panggil model untuk mengambil data bank berdasarkan idRequest
+        $bankData = $this->BankingModel->getBankData($idRequest);
+
+        if ($bankData) {
+            // Jika data ditemukan, kirim respons JSON
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($bankData));
+        } else {
+            // Jika data tidak ditemukan, kirim respons JSON kosong atau error
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['error' => 'Bank data not found']));
+        }
+    }
+
+    public function getRequestDetails($idRequest)
+    {
+        // Panggil model untuk mengambil data barang dan total bayar berdasarkan idRequest
+        $requestData = $this->RequestModel->getRequestDetails($idRequest);
+
+        if ($requestData) {
+            // Jika data ditemukan, kirim respons JSON
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($requestData));
+        } else {
+            // Jika data tidak ditemukan, kirim respons JSON kosong atau error
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['error' => 'Data tidak ditemukan']));
         }
     }
 }

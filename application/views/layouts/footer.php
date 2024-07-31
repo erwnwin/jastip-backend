@@ -44,7 +44,7 @@
 <script src="<?= base_url() ?>public/ajax/jastip-delete.js"></script>
 <script src="<?= base_url() ?>public/ajax/pengumuman.js"></script>
 <script src="<?= base_url() ?>public/ajax/pembayaran-proses.js"></script>
-<!-- <script src="<?= base_url() ?>public/ajax/delete-old.js"></script> -->
+<script src="<?= base_url() ?>public/ajax/bukti-tf.js"></script>
 
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="<?= base_url() ?>assets/dist/js/demo.js"></script> -->
@@ -146,7 +146,7 @@
         });
     });
 </script>
-<script>
+<!-- <script>
     console.log("Script delete-old.js loaded");
 
     setInterval(function() {
@@ -159,8 +159,8 @@
             }
         };
         xhr.send();
-    }, 300000); // setiap 5 menit dihapus
-</script>
+    }, 300000); 
+</script> -->
 
 
 

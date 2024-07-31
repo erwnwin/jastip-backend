@@ -91,12 +91,18 @@ $route['artikel/delete'] = 'data/artikel/delete';
 $route['titipan'] = 'data/titipan';
 $route['titipan/pembayaran-store'] = 'data/titipan/pembayaran_store';
 $route['titipan/(:num)/acc'] = 'data/titipan/acc/$1';
+$route['status-titipan'] = 'data/status_titipan';
+$route['riwayat-titipan'] = 'data/status_titipan/riwayat';
+
 // ==================
 $route['api/titipan/'] = 'data/titipan';
 $route['api/titipan/delete-old-data'] = 'api/ApiTitipan/delete_old_data';
 $route['api/titipan/(:num)'] = 'api/ApiTitipan/getTitipanTerbaruByPelangganId/$1';
 $route['api/titipan/delete/(:num)'] = 'api/ApiTitipan/deleteTitipan/$1';
 $route['api/titipan/proses-pay'] = 'api/ApiTitipan/proses_pay';
+$route['api/titipan/data-bank/(:num)'] = 'api/ApiTitipan/getBankData/$1';
+$route['api/titipan/detail-barang/(:num)'] = 'api/ApiTitipan/getRequestDetails/$1';
+$route['api/titipan/get-bukti-bayar/(:num)'] = 'data/Titipan/getBuktiBayar/$1';
 
 
 // Routes login API
