@@ -17,6 +17,15 @@ class BankingModel extends CI_Model
         // Return data bank jika ada, atau null jika tidak ditemukan
         return $query->row_array();
     }
+
+    public function get_items()
+    {
+        // return $this->db->get('tbl_request_barang')->result();
+        $this->db->select('*');
+        $this->db->from('tbl_banks');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
 
 /* End of file BankingModel.php */

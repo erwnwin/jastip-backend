@@ -100,8 +100,8 @@
 
                      <li class="nav-header">Jasa Gadai</li>
                      <li class="nav-item">
-                         <a href="<?= base_url('gadai') ?>" class="nav-link <?= $this->uri->segment(1) == 'riwayat-pembayaran' ? 'active' : ''
-                                                                            ?>">
+                         <a href="<?= base_url('customers-gadai') ?>" class="nav-link <?= $this->uri->segment(1) == 'customers-gadai' ? 'active' : ''
+                                                                                        ?>">
                              <i class="nav-icon fas fa-users"></i>
                              <p>
                                  Customers Gadai
@@ -109,8 +109,8 @@
                          </a>
                      </li>
                      <li class="nav-item">
-                         <a href="<?= base_url('gadai') ?>" class="nav-link <?= $this->uri->segment(1) == 'riwayat-pembayaran' ? 'active' : ''
-                                                                            ?>">
+                         <a href="<?= base_url('form-gadai') ?>" class="nav-link <?= $this->uri->segment(1) == 'form-gadai' ? 'active' : ''
+                                                                                    ?>">
                              <i class="nav-icon fas fa-file-alt"></i>
                              <p>
                                  Form Gadai
@@ -118,7 +118,7 @@
                          </a>
                      </li>
                      <li class="nav-item">
-                         <a href="<?= base_url('riwayat-gadai') ?>" class="nav-link <?= $this->uri->segment(1) == 'riwayat-pembayaran' ? 'active' : ''
+                         <a href="<?= base_url('riwayat-gadai') ?>" class="nav-link <?= $this->uri->segment(1) == 'riwayat-gadai' ? 'active' : ''
                                                                                     ?>">
                              <i class="nav-icon fas fa-history"></i>
                              <p>

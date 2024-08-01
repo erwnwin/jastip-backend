@@ -31,7 +31,7 @@
                                      <thead>
                                          <tr>
                                              <th style="width: 10px">#</th>
-                                             <th>Nama Jasa Titip</th>
+                                             <th>Nama Pelanggan / Pemesan</th>
                                              <th>Alamat</th>
                                              <th>Nama Barang / Qty</th>
                                              <th>Gambar</th>
@@ -69,7 +69,7 @@
                                                              <span class="badge bg-warning">Waiting......</span>
                                                          <?php } elseif ($r['status'] == 'payment-awal') { ?>
                                                              <a class="btn btn-sm btn-outline-primary view-bukti-bayar" data-id="<?php echo $r['id']; ?>"> Lihat Bukti Bayar </a>
-                                                             <button type="button" class="btn btn-sm btn-outline-success delete-btn" data-id="<?php echo $r['id']; ?>" data-toggle="modal" data-target="#modalDelete"> Lakukan Pengiriman</button>
+                                                             <button type="button" class="btn btn-sm btn-outline-info" data-id="<?php echo $r['id']; ?>" data-toggle="modal" data-target="#modalChangeStatus"> Lakukan Pengiriman</button>
                                                          <?php } ?>
                                                      </td>
                                                  </tr>
@@ -86,7 +86,8 @@
                      </div>
                  </div>
              </section>
-             <!-- Modal -->
+
+             <!-- Modal lihat bukti tf -->
              <div class="modal fade" id="modalBuktiBayar" tabindex="-1" role="dialog" aria-labelledby="modalBuktiBayarLabel" aria-hidden="true">
                  <div class="modal-dialog" role="document">
                      <div class="modal-content">
@@ -103,6 +104,35 @@
                          </div>
                          <div class="modal-footer">
                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+             <!-- konfrm kirim -->
+             <div class="modal fade" id="modalChangeStatus" tabindex="-1" role="dialog" aria-labelledby="modalChangeStatusLabel" aria-hidden="true">
+                 <div class="modal-dialog" role="document">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <h5 class="modal-title" id="modalChangeStatusLabel">Ubah Status Pengiriman</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                             </button>
+                         </div>
+                         <div class="modal-body">
+                             <form id="statusForm">
+                                 <input type="hidden" id="requestId" name="requestId" value="">
+                                 <div class="form-group">
+                                     <label for="statusSelect">Pilih Status</label>
+                                     <select id="statusSelect" name="status" class="form-control">
+                                         <option value="pengantaran">Pengantaran</option>
+                                         <!-- Tambahkan opsi lain jika diperlukan -->
+                                     </select>
+                                 </div>
+                                 <div class="form-group">
+                                     <button type="button" class="btn btn-success btn-sm" id="updateStatusButton">Update Status</button>
+                                 </div>
+                             </form>
                          </div>
                      </div>
                  </div>

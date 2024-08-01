@@ -33,6 +33,17 @@ class RequestModel extends CI_Model
 
         return $query->row_array();
     }
+
+    public function updateStatus($id, $status)
+    {
+        // Validasi input jika diperlukan
+        if ($id && $status) {
+            $this->db->set('status', $status);
+            $this->db->where('id', $id);
+            return $this->db->update('tbl_request_barang');
+        }
+        return false;
+    }
 }
 
 /* End of file RequestModel.php */

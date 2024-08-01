@@ -98,12 +98,13 @@ $route['riwayat-titipan'] = 'data/status_titipan/riwayat';
 $route['api/titipan/'] = 'data/titipan';
 $route['api/titipan/delete-old-data'] = 'api/ApiTitipan/delete_old_data';
 $route['api/titipan/(:num)'] = 'api/ApiTitipan/getTitipanTerbaruByPelangganId/$1';
+$route['api/titipan-antar/(:num)'] = 'api/ApiTitipan/getTitipanAntarByPelangganId/$1';
 $route['api/titipan/delete/(:num)'] = 'api/ApiTitipan/deleteTitipan/$1';
 $route['api/titipan/proses-pay'] = 'api/ApiTitipan/proses_pay';
 $route['api/titipan/data-bank/(:num)'] = 'api/ApiTitipan/getBankData/$1';
 $route['api/titipan/detail-barang/(:num)'] = 'api/ApiTitipan/getRequestDetails/$1';
 $route['api/titipan/get-bukti-bayar/(:num)'] = 'data/Titipan/getBuktiBayar/$1';
-
+$route['api/titipan/ubah-status'] = 'data/Titipan/update_status';
 
 // Routes login API
 // $route['api/login'] = 'api/ApiLogin/index';
@@ -122,3 +123,9 @@ $route['logout'] = 'auth/LoginJastip/logout';
 // Routes users
 $route['profil'] = 'users/Profil';
 $route['info-apps'] = 'users/Info_apps';
+
+// Routes gadai
+$route['customers-gadai'] = 'gadai/customers_gadai';
+$route['form-gadai'] = 'gadai/form_gadai';
+$route['form-gadai/store'] = 'gadai/form_gadai/store';
+$route['riwayat-gadai'] = 'gadai/riwayat_gadai';

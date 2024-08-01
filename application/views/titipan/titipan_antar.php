@@ -31,7 +31,7 @@
                                      <thead>
                                          <tr>
                                              <th style="width: 10px">#</th>
-                                             <th>Nama Jasa Titip</th>
+                                             <th>Nama Pelanggan / Pemesan</th>
                                              <th>Alamat</th>
                                              <th>Nama Barang / Qty</th>
                                              <th>Gambar</th>
@@ -52,8 +52,8 @@
                                                          <img src="<?php echo base_url('uploads/barang/' . $r['gambar']) ?>" alt="" width="50px" height="50px">
                                                      </td>
                                                      <td>
-                                                         <?php if ($r['status'] == 'request') { ?>
-                                                             <span class="badge bg-warning">Request Terbaru</span>
+                                                         <?php if ($r['status'] == 'pengantaran') { ?>
+                                                             <span class="badge bg-warning">Kurir telah melakukan pengantaran</span>
                                                          <?php } elseif ($r['status'] == 'acc-request') { ?>
                                                              <span class="badge bg-primary">Menunggu Pembayaran Pelanggan</span>
                                                          <?php } elseif ($r['status'] == 'payment-awal') { ?>
@@ -62,14 +62,8 @@
 
                                                      </td>
                                                      <td>
-                                                         <?php if ($r['status'] == 'request') { ?>
-                                                             <a href="<?= base_url('titipan/' . $r['id'] . '/acc') ?>" class="btn btn-sm btn-outline-warning"> Acc Request </a>
-                                                             <button type="button" class="btn btn-sm btn-outline-danger delete-btn" data-id="<?php echo $r['id']; ?>" data-toggle="modal" data-target="#modalDelete"> Batal</button>
-                                                         <?php } elseif ($r['status'] == 'acc-request') { ?>
-                                                             <span class="badge bg-warning">Waiting......</span>
-                                                         <?php } elseif ($r['status'] == 'payment-awal') { ?>
-                                                             <a href="<?= base_url('titipan/' . $r['id'] . '/acc') ?>" class="btn btn-sm btn-outline-primary"> Lihat Bukti Bayar </a>
-                                                             <button type="button" class="btn btn-sm btn-outline-success delete-btn" data-id="<?php echo $r['id']; ?>" data-toggle="modal" data-target="#modalDelete"> Lakukan Pengiriman</button>
+                                                         <?php if ($r['status'] == 'pengantaran') { ?>
+                                                             <button type="button" class="btn btn-sm btn-outline-success delete-btn" data-id="<?php echo $r['id']; ?>" data-toggle="modal" data-target="#modalSelesaiAntar"> Tandai DONE PENGANTARAN</button>
                                                          <?php } ?>
                                                      </td>
                                                  </tr>

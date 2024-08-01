@@ -82,7 +82,7 @@
                                              <!-- <button type="submit" class="btn btn-info">Sign in</button> -->
                                              <button type="submit" class="btn btn-success btn-sm float-right">
                                                  <span id="btnLoaderPengumuman" style="display: none;">
-                                                     <i class="fa fa-spinner fa-spin"></i> Loading...
+                                                     <i class="fa fa-spinner fa-spin"></i>
                                                  </span>
                                                  Simpan
                                              </button>

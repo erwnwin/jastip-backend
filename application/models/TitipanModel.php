@@ -61,6 +61,20 @@ class TitipanModel extends CI_Model
         }
     }
 
+    public function getTitipanAntarByPelangganId($pelanggan_id)
+    {
+        $this->db->select('id, nama_barang, jumlah, status');
+        $this->db->where('pelanggan_id', $pelanggan_id);
+        $this->db->where_in('status', array('pengantaran'));
+        $this->db->order_by('tbl_request_barang.id', 'desc');
+        $query = $this->db->get('tbl_request_barang');
+        if ($query->num_rows() > 0) {
+            return $query->result(); // Mengembalikan hasil query dalam bentuk array objek
+        } else {
+            return array(); // Mengembalikan array kosong jika tidak ada data
+        }
+    }
+
     public function deleteTitipan($id)
     {
         $this->db->where('id', $id);

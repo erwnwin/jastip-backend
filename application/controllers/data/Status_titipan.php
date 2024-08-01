@@ -9,6 +9,7 @@ class Status_titipan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('RequestModel');
+        $this->load->model('TitipanModel');
         if ($this->session->userdata('masuk') != "true" || $this->session->userdata('hak_akses') != "jastip") {
             redirect(base_url("login"));
         }

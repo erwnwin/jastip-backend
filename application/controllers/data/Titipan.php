@@ -111,6 +111,26 @@ class Titipan extends CI_Controller
             ));
         }
     }
+
+    public function update_status()
+    {
+        // Ambil data dari POST request
+        $id = $this->input->post('id');
+        $status = $this->input->post('status');
+
+        // Validasi data jika diperlukan
+        if ($id && $status) {
+            $result = $this->RequestModel->updateStatus($id, $status);
+
+            if ($result) {
+                echo json_encode(['status' => 'success']);
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Failed to update status']);
+            }
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Invalid input']);
+        }
+    }
 }
 
 /* End of file Titipan.php */
