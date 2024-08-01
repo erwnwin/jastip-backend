@@ -30,6 +30,19 @@ class GadaiModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+
+    public function get_riwayat_by_jastip_id()
+    {
+        $this->db->select('tbl_form_gadai.*, tbl_pelanggan.nama_lengkap, tbl_pelanggan.alamat, tbl_jastip.nama_jastip');
+        $this->db->from('tbl_form_gadai');
+        $this->db->join('tbl_pelanggan', 'tbl_pelanggan.id = tbl_form_gadai.pelanggan_id');
+        $this->db->join('tbl_jastip', 'tbl_jastip.id = tbl_form_gadai.jastip_id');
+        $this->db->where('tbl_form_gadai.jastip_id', $this->session->userdata('id'));
+        $this->db->order_by('tbl_form_gadai.id', 'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
 
 /* End of file GadaiModel.php */

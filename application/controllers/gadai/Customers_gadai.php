@@ -10,6 +10,9 @@ class Customers_gadai extends CI_Controller
     {
         parent::__construct();
         $this->load->model('GadaiModel');
+        if ($this->session->userdata('masuk') != "true" || $this->session->userdata('hak_akses') != "jastip") {
+            redirect(base_url("login"));
+        }
     }
 
 

@@ -10,6 +10,7 @@ class Status_titipan extends CI_Controller
         parent::__construct();
         $this->load->model('RequestModel');
         $this->load->model('TitipanModel');
+        $this->load->model('PembayaranModel');
         if ($this->session->userdata('masuk') != "true" || $this->session->userdata('hak_akses') != "jastip") {
             redirect(base_url("login"));
         }
@@ -41,6 +42,18 @@ class Status_titipan extends CI_Controller
         $this->load->view('layouts/header', $data);
         $this->load->view('layouts/sidebar', $data);
         $this->load->view('titipan/titipan_riwayat', $data);
+        $this->load->view('layouts/footer', $data);
+    }
+
+    public function riwayat_pembayaran()
+    {
+        $data['title'] = 'Riwayat Pembayaran : Apps JasTip';
+        $data['pembayaran'] = json_decode(json_encode($this->PembayaranModel->get_pembayaran()), true);
+
+        $this->load->view('layouts/head', $data);
+        $this->load->view('layouts/header', $data);
+        $this->load->view('layouts/sidebar', $data);
+        $this->load->view('pembayaran/riwayat_pembayaran', $data);
         $this->load->view('layouts/footer', $data);
     }
 }

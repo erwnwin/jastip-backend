@@ -10,6 +10,9 @@ class Form_gadai extends CI_Controller
         parent::__construct();
         $this->load->model('GadaiModel');
         $this->load->model('BankingModel');
+        if ($this->session->userdata('masuk') != "true" || $this->session->userdata('hak_akses') != "jastip") {
+            redirect(base_url("login"));
+        }
     }
 
 

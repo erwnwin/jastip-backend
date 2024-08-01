@@ -48,6 +48,23 @@ class ApiTitipan extends CI_Controller
         }
     }
 
+    public function getTitipanDoneByPelangganId($pelanggan_id)
+    {
+        $titipan = $this->TitipanModel->getTitipanDoneByPelangganId($pelanggan_id);
+
+        if ($titipan) {
+            // Jika data ditemukan, kirim response JSON
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($titipan));
+        } else {
+            // Jika tidak ada data ditemukan, kirim response kosong atau pesan error
+            $this->output
+                ->set_status_header(404)
+                ->set_output(json_encode(['message' => 'Data tidak ditemukan']));
+        }
+    }
+
     public function deleteTitipan($id)
     {
         log_message('debug', 'ID yang diterima: ' . $id);

@@ -53,7 +53,7 @@ class Titipan extends CI_Controller
             // Jika ada data yang kosong, kirim respons error
             $response = [
                 'status' => false,
-                'message' => 'Jumlah bayar atau request ID tidak boleh kosong.'
+                'message' => 'Upsss!<br>Jumlah bayar atau request ID tidak boleh kosong.'
             ];
             echo json_encode($response);
             return;
@@ -78,13 +78,13 @@ class Titipan extends CI_Controller
             if ($saved_pembayaran && $updated_request) {
                 $response = [
                     'status' => true,
-                    'message' => 'Pembayaran berhasil diproses.',
+                    'message' => 'Sukses<br>Pembayaran berhasil diproses.',
                     'redirect' => base_url('titipan')
                 ];
             } else {
                 $response = [
                     'status' => false,
-                    'message' => 'Gagal menyimpan data pembayaran atau mengupdate status.'
+                    'message' => 'Error!<br>Gagal menyimpan data pembayaran atau mengupdate status.'
                 ];
             }
 
