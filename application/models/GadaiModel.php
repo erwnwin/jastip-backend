@@ -43,6 +43,21 @@ class GadaiModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function get_riwayat($pelanggan_id)
+    {
+        $this->db->select('tbl_form_gadai.id, besar_pinjaman, barang_jaminan_diserahkan');
+        $this->db->join('tbl_pelanggan', 'tbl_pelanggan.id = tbl_form_gadai.pelanggan_id');
+        $this->db->join('tbl_jastip', 'tbl_jastip.id = tbl_form_gadai.jastip_id');
+        $this->db->where('tbl_form_gadai.pelanggan_id', $pelanggan_id);
+        $this->db->order_by('tbl_form_gadai.id', 'desc');
+        $query = $this->db->get('tbl_form_gadai');
+        if ($query->num_rows() > 0) {
+            return $query->result(); // Mengembalikan hasil query dalam bentuk array objek
+        } else {
+            return array(); // Mengembalikan array kosong jika tidak ada data
+        }
+    }
 }
 
 /* End of file GadaiModel.php */

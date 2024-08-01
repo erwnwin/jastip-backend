@@ -108,6 +108,9 @@ $route['api/titipan/detail-barang/(:num)'] = 'api/ApiTitipan/getRequestDetails/$
 $route['api/titipan/get-bukti-bayar/(:num)'] = 'data/Titipan/getBuktiBayar/$1';
 $route['api/titipan/ubah-status'] = 'data/Titipan/update_status';
 
+// Routes gadai
+$route['api/riwayat-gadai/(:num)'] = 'api/ApiGadai/get_riwayat/$1';
+
 // Routes login API
 // $route['api/login'] = 'api/ApiLogin/index';
 // $route['auth/login/coba'] = 'auth/LoginController/index';

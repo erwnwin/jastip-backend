@@ -29,6 +29,9 @@ class Riwayat_gadai extends CI_Controller
         $this->load->view('gadai/riwayat_gadai', $data);
         $this->load->view('layouts/footer', $data);
     }
+
+
+    
 }
 
 /* End of file Riwayat_gadai.php */

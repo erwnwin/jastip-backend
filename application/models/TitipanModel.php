@@ -91,7 +91,7 @@ class TitipanModel extends CI_Model
 
 
 
-    
+
     public function deleteTitipan($id)
     {
         $this->db->where('id', $id);
